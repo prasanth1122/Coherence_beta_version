@@ -7,7 +7,9 @@ export default function PromocodePage() {
   return (
     <div className="w-full h-full flex items-start gap-4 flex-col">
       {/* Navbar at the top of the page */}
-      <Navbar />
+      <div className="sticky top-0 z-100 w-full">
+        <Navbar />
+      </div>
 
       {/* Main content area */}
       <main className="flex flex-col items-center gap-8 w-full flex-1 lg:flex-row lg:items-center">

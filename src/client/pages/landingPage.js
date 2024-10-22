@@ -10,17 +10,21 @@ export default function LandingPage() {
     // Main container with full width and height, flex column layout, and gap between elements
     <div className="w-full h-full flex items-start gap-4 flex-col">
       {/* Navbar at the top of the page */}
-      <MainpageNavbar />
+      <div className="sticky top-0 z-100 w-full">
+        <MainpageNavbar />
+      </div>
 
       {/* Main content area: sidebar on the left, main content on the right */}
-      <div className="flex-1 w-full flex items-start gap-4">
+      <div className="flex-1 w-full flex items-start gap-4 overflow-y-hidden">
         {/* Sidebar component with profile and user info */}
-        <Sidebar />
+        <div className="sticky left-0 top-20 z-10 w-54 ">
+          <Sidebar />
+        </div>
 
         {/* Main section of the page */}
-        <main className="flex-1 h-full gap-4 flex flex-col items-start">
+        <main className="flex-1 h-full gap-4 flex flex-col items-start overflow-y-auto">
           {/* Article and Similar Articles section displayed side-by-side on larger screens */}
-          <div className="w-full h-full flex flex-col items-start gap-4 lg:flex-row">
+          <div className="w-full flex flex-col items-start gap-4 lg:flex-row">
             {/* Main article component */}
             <Article />
 

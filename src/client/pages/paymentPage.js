@@ -4,7 +4,9 @@ export default function PaymentPage() {
   return (
     <div className="w-full h-full flex items-start gap-4 flex-col">
       {/* Navbar component at the top of the page */}
-      <Navbar />
+      <div className="sticky top-0 z-100 w-full">
+        <Navbar />
+      </div>
       <main className="flex flex-col items-center gap-8 w-full flex-1 lg:flex-row lg:items-center">
         {/* Left section with subscription message */}
         <div className="flex flex-col items-center px-8 pl-12 w-full lg:w-2/5 lg:items-start lg:pl-12">

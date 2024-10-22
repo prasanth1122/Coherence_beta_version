@@ -5,7 +5,10 @@ import WriteArticleNavbar from "../components/writeAricleNavbar/writeArticleNavb
 export default function WriteArticlePage() {
   return (
     <div className="w-full h-full flex items-start gap-4 flex-col">
-      <WriteArticleNavbar />
+      <div className="sticky top-0 z-10 w-full">
+        <WriteArticleNavbar />
+      </div>
+
       <div className="flex-1 w-full flex items-start gap-4">
         <Sidebar />
         <div className="flex-1 flex flex-col items-start gap-8 p-4 bg-terinary rounded-xl h-full">

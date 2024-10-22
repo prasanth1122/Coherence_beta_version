@@ -4,7 +4,7 @@ import profile from "../../assets/profile 2.png";
 export default function Sidebar() {
   return (
     // Outer container: flex column layout with padding, a background color, and text color for the sidebar
-    <div className="flex flex-col gap-12 items-start w-54 border-2 h-full bg-primary px-16 py-8 text-white">
+    <div className="flex flex-col gap-12 items-start w-54 h-screen border-2  bg-primary px-16 py-8 text-white">
       {/* Profile image */}
       <img src={profile} alt="profileImage" className="" />
 

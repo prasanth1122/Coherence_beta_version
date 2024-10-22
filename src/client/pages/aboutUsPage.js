@@ -6,7 +6,9 @@ export default function AboutUs() {
   return (
     <div className="w-full h-full flex items-start gap-4 flex-col">
       {/* Navbar for the About Us page */}
-      <AboutusNavbar />
+      <div className="sticky top-0 z-100 w-full">
+        <AboutusNavbar />
+      </div>
 
       {/* Main content area */}
       <main className="flex px-4 flex-col items-center gap-8 w-full flex-1 lg:flex-row lg:items-center">
