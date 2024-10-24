@@ -1,11 +1,22 @@
-export default function FormInput({ label, placeholder }) {
+export default function FormInput({
+  label,
+  placeholder,
+  required,
+  value,
+  onChange,
+}) {
   return (
     <div className="w-full flex flex-col items-start gap-2">
       <p className="text-2xl">{label}</p>
       <input
         type="text"
-        className="w-full h-12 text-lg rounded-xl bg-white shadow-input_shadow p-4"
+        className={`w-full h-12 text-lg rounded-xl bg-white shadow-input_shadow p-4 
+          
+        `}
         placeholder={placeholder}
+        required={required}
+        value={value}
+        onChange={onChange}
       />
     </div>
   );

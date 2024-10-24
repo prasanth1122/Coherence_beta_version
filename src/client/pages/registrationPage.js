@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/navBar/navbar";
 import FormInput from "../components/formInput/formInput";
+import { useNavigation } from "../store/context/navigationContext";
+import { useNavigate } from "react-router-dom";
 
 // RegistrationPage component
 export default function RegistrationPage() {
+  const { handleNavigation, handleRegister, handlePreferenceOpen } =
+    useNavigation();
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
+  const [location, setLocation] = useState("");
+
+  // State to handle form submission error
+  const [errorMessage, setErrorMessage] = useState("");
+  const handleRegisteration = () => {
+    if (name === "" || age === "" || location === "") {
+      setErrorMessage("Please fill out all fields.");
+    } else {
+      setErrorMessage("");
+      handleRegister();
+      handlePreferenceOpen();
+      handleNavigation("/home");
+    }
+  };
   return (
     <div className="w-full h-full flex items-start gap-4 flex-col">
       {/* Navbar at the top of the page */}
@@ -37,13 +57,37 @@ export default function RegistrationPage() {
 
           {/* Input fields for registration */}
           <div className="w-full flex flex-col items-center gap-4">
-            <FormInput label={"Name"} placeholder={"Enter Your Name"} />
-            <FormInput label={"Age"} placeholder={"Select Age Group"} />
-            <FormInput label={"Location"} placeholder={"Select Your Country"} />
+            <FormInput
+              label={"Name"}
+              placeholder={"Enter Your Name"}
+              required={true}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <FormInput
+              label={"Age"}
+              placeholder={"Select Age Group"}
+              required={true}
+              value={age}
+              onChange={(e) => setAge(e.target.value)}
+            />
+            <FormInput
+              label={"Location"}
+              placeholder={"Select Your Country"}
+              required={true}
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+            />
             {/* Register button */}
-            <button className="px-4 py-2 bg-secondary text-white text-2xl rounded-xl mt-4 shadow-cta_button_shadow">
+            <button
+              className="px-4 py-2 bg-secondary text-white text-2xl rounded-xl mt-4 shadow-cta_button_shadow"
+              onClick={handleRegisteration}
+            >
               Register
             </button>
+            {errorMessage && (
+              <p className="text-lg w-full text-center">{errorMessage}</p>
+            )}
           </div>
         </div>
       </main>

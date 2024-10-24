@@ -1,6 +1,14 @@
 import Navbar from "../components/navBar/navbar";
+import { useNavigation } from "../store/context/navigationContext";
 
 export default function PaymentPage() {
+  const { handleNavigation, isRegister, handleSubscribe } = useNavigation();
+  const handlePayment = () => {
+    if (isRegister == true) {
+      handleSubscribe();
+      handleNavigation("/home");
+    }
+  };
   return (
     <div className="w-full h-full flex items-start gap-4 flex-col">
       {/* Navbar component at the top of the page */}
@@ -41,9 +49,18 @@ export default function PaymentPage() {
               </p>
             </div>
             {/* Payment button */}
-            <button className="w-full py-2 bg-secondary text-white text-2xl rounded-xl mt-4 shadow-cta_button_shadow">
+            <button
+              className="w-full py-2 bg-secondary text-white text-2xl rounded-xl mt-4 hover:shadow-cta_button_shadow"
+              onClick={handlePayment}
+            >
               Make Payment of Rs. 149/Month
             </button>
+            <p
+              className="w-full text-lg text-secondary text-center hover:underline hover:cursor-pointer"
+              onClick={() => handleNavigation("/promo")}
+            >
+              Have Promo?
+            </p>
           </div>
         </div>
       </main>

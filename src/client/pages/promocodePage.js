@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/navBar/navbar";
 import FormInput from "../components/formInput/formInput";
+import { useNavigation } from "../store/context/navigationContext";
 
 // PromocodePage component
 export default function PromocodePage() {
+  const { handleNavigation, handleSubscribe, isSubscribe } = useNavigation();
+  const [promo, setPromo] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const handleRegister = () => {
+    if (promo == "") {
+      setErrorMessage("Enter promo code");
+    } else {
+      setErrorMessage("");
+      handleSubscribe();
+
+      handleNavigation("/home");
+    }
+  };
   return (
     <div className="w-full h-full flex items-start gap-4 flex-col">
       {/* Navbar at the top of the page */}
@@ -33,12 +47,20 @@ export default function PromocodePage() {
             <FormInput
               label={"I have special access to the service via my code"}
               placeholder={"Enter Your Code"}
+              value={promo}
+              onChange={(e) => setPromo(e.target.value)}
             />
 
             {/* Proceed button */}
-            <button className="w-full py-2 bg-secondary text-white text-2xl rounded-xl mt-4 shadow-cta_button_shadow">
+            <button
+              className="w-full py-2 bg-secondary text-white text-2xl rounded-xl mt-4 shadow-cta_button_shadow"
+              onClick={handleRegister}
+            >
               Proceed
             </button>
+            {errorMessage && (
+              <p className="text-lg w-full text-center">{errorMessage}</p>
+            )}
           </div>
         </div>
       </main>
