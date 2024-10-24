@@ -5,11 +5,11 @@ import { useNavigation } from "../store/context/navigationContext";
 
 // PromocodePage component
 export default function PromocodePage() {
-  const { handleNavigation, handleSubscribe, isSubscribe } = useNavigation();
+  const { handleNavigation, handleSubscribe } = useNavigation();
   const [promo, setPromo] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const handleRegister = () => {
-    if (promo == "") {
+    if (promo === "") {
       setErrorMessage("Enter promo code");
     } else {
       setErrorMessage("");

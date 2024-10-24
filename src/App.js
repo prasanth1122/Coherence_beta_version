@@ -11,10 +11,7 @@ import StatisticsPage from "./client/pages/statisticsPage";
 import WriteArticlePage from "./client/pages/writeArticlePage";
 import HomePage from "./client/pages/homePage";
 import LandingPage from "./client/pages/landingPage";
-import {
-  NavigationProvider,
-  useNavigation,
-} from "./client/store/context/navigationContext";
+import { NavigationProvider } from "./client/store/context/navigationContext";
 
 function App() {
   return (

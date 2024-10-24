@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Navbar from "../components/navBar/navbar";
 import FormInput from "../components/formInput/formInput";
 import { useNavigation } from "../store/context/navigationContext";
-import { useNavigate } from "react-router-dom";
+
 
 // RegistrationPage component
 export default function RegistrationPage() {

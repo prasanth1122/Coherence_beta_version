@@ -1,4 +1,4 @@
-import LibraryBar from "../myArticles/libraryBar";
+
 import CollectionBar from "./collectionBar";
 
 export default function MyCollection() {

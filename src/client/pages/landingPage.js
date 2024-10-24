@@ -1,9 +1,9 @@
 import MainpageNavbar from "../components/mainpageNavbar/mainpageNavbar";
 import TrendingBar from "../components/trendingOnCoherence/trendingBar";
-import { useNavigation } from "../store/context/navigationContext";
+
 
 export default function LandingPage() {
-  const { isSubscribe, isProfileOpen, isPreference } = useNavigation();
+  
 
   return (
     <div className="w-full h-full flex items-start gap-4 flex-col">

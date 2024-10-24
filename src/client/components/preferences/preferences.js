@@ -2,7 +2,7 @@ import { useNavigation } from "../../store/context/navigationContext";
 import PreferenceBar from "./preferenceBar";
 
 export default function Preferences() {
-  const { isPreference, handlePreferenceClose } = useNavigation();
+  const { handlePreferenceClose } = useNavigation();
   return (
     <div className="p-4 w-96 h-[500px] bg-terinary rounded-xl absolute top-10 left-20 z-50 md:left-1/3 md:top-36 flex flex-col items-center gap-8">
       <p className="text-2xl">Preferences</p>

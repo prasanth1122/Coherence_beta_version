@@ -4,7 +4,7 @@ import { useNavigation } from "../store/context/navigationContext";
 export default function PaymentPage() {
   const { handleNavigation, isRegister, handleSubscribe } = useNavigation();
   const handlePayment = () => {
-    if (isRegister == true) {
+    if (isRegister === true) {
       handleSubscribe();
       handleNavigation("/home");
     }

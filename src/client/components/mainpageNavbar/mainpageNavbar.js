@@ -1,6 +1,6 @@
 import { IoPerson } from "react-icons/io5";
 import { IoNotifications } from "react-icons/io5";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useNavigation } from "../../store/context/navigationContext";
 
 export default function MainpageNavbar() {
@@ -22,7 +22,7 @@ export default function MainpageNavbar() {
     }
   };
   const handleHome = () => {
-    if (isRegister == true) {
+    if (isRegister === true) {
       handleNavigation("/home");
     }
   };
