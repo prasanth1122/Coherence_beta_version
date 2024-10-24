@@ -58,7 +58,7 @@ export default function ProfileBar() {
         </div>
       </div>
       <button
-        className="px-4 py-2 bg-secondary rounded-xl text-white"
+        className="px-4 py-2 bg-secondary rounded-xl text-white hover:shadow-cta_button_shadow"
         onClick={handleProfileClose}
       >
         Make changes

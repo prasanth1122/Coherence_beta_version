@@ -16,7 +16,7 @@ export default function Preferences() {
         `}
             placeholder="Add Preferences"
           />
-          <button className="px-4 py-2 bg-secondary rounded-xl text-white text-lg">
+          <button className="px-4 py-2 bg-secondary rounded-xl text-white text-lg hover:shadow-cta_button_shadow">
             Add
           </button>
         </div>
@@ -27,7 +27,7 @@ export default function Preferences() {
         <PreferenceBar preference={"Medicine"} />
       </div>
       <button
-        className="px-4 py-2 bg-secondary rounded-xl text-white text-lg"
+        className="px-4 py-2 bg-secondary rounded-xl text-white text-lg hover:shadow-cta_button_shadow"
         onClick={handlePreferenceClose}
       >
         Submit

@@ -22,7 +22,7 @@ export default function WriteArticleNavbar() {
         className="p-4 w-1/4 md:w-2/5  rounded-lg h-9 shadow-input_shadow text-black"
       />
       <button
-        className="px-4 py-2 rounded-xl bg-secondary"
+        className="px-4 py-2 rounded-xl bg-secondary hover:shadow-cta_button_shadow"
         onClick={() => {
           handleNavigation("/home");
         }}

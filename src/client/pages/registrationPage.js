@@ -3,7 +3,6 @@ import Navbar from "../components/navBar/navbar";
 import FormInput from "../components/formInput/formInput";
 import { useNavigation } from "../store/context/navigationContext";
 
-
 // RegistrationPage component
 export default function RegistrationPage() {
   const { handleNavigation, handleRegister, handlePreferenceOpen } =
@@ -80,7 +79,7 @@ export default function RegistrationPage() {
             />
             {/* Register button */}
             <button
-              className="px-4 py-2 bg-secondary text-white text-2xl rounded-xl mt-4 shadow-cta_button_shadow"
+              className="px-4 py-2 bg-secondary text-white text-2xl rounded-xl mt-4 hover:shadow-cta_button_shadow"
               onClick={handleRegisteration}
             >
               Register

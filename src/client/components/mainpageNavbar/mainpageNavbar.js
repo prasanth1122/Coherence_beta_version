@@ -49,7 +49,7 @@ export default function MainpageNavbar() {
       {/* Conditionally render Register or Subscribe button based on the path */}
       <button
         disabled={isSubscribe}
-        className="px-4 py-2 rounded-xl bg-secondary"
+        className="px-4 py-2 rounded-xl bg-secondary hover:shadow-cta_button_shadow"
         onClick={() =>
           handleNavigation(
             location.pathname === "/home" ? "/subscribe" : "/registration"
