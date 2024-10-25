@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Navbar from "../components/navBar/navbar";
+
 import FormInput from "../components/formInput/formInput";
 import { useNavigation } from "../store/context/navigationContext";
 
@@ -9,24 +9,17 @@ export default function PromocodePage() {
   const [promo, setPromo] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const handleRegister = () => {
-    if (promo === "") {
-      setErrorMessage("Enter promo code");
-    } else {
-      setErrorMessage("");
-      handleSubscribe();
+    setErrorMessage("");
+    handleSubscribe();
 
-      handleNavigation("/home");
-    }
+    handleNavigation("/home");
   };
   return (
-    <div className="w-full h-full flex items-start gap-4 flex-col">
+    <div className="w-full h-full flex items-start gap-4 flex-col  md:overflow-hidden">
       {/* Navbar at the top of the page */}
-      <div className="sticky top-0 z-100 w-full">
-        <Navbar />
-      </div>
 
       {/* Main content area */}
-      <main className="flex flex-col items-center gap-8 w-full flex-1 lg:flex-row lg:items-center">
+      <main className="flex flex-col items-center gap-8 w-full flex-1 lg:flex-row lg:items-center overflow-y-scroll xl:overflow-y-hidden">
         {/* Left section with payment instructions */}
         <div className="flex flex-col items-center px-8 pl-12 w-full lg:w-2/5 lg:items-start lg:pl-12">
           <p className="text-2xl text-important_text">Make Payment</p>
@@ -36,7 +29,7 @@ export default function PromocodePage() {
         </div>
 
         {/* Right section with QR code and input form */}
-        <div className="flex flex-col gap-16 items-center w-5/6 px-12 mx-4 rounded-xl bg-terinary p-4 md:w-3/5 lg:h-full lg:px-24 py-12">
+        <div className="flex flex-col gap-16 items-center w-5/6 px-12 mx-4 rounded-xl lg:rounded-none bg-terinary p-4 md:w-3/5 lg:h-full lg:px-24 py-12">
           {/* Placeholder for QR Code */}
           <div className="w-64 h-64 border-2 flex flex-col justify-center items-center bg-highlight_background rounded-xl">
             <p className="text-2xl">QR Code Here</p>

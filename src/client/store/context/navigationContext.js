@@ -1,5 +1,6 @@
+// NavigationContext.js
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 // Create the Navigation Context
 const NavigationContext = createContext();
@@ -7,6 +8,7 @@ const NavigationContext = createContext();
 // Create a provider component
 export function NavigationProvider({ children }) {
   const navigate = useNavigate();
+  const location = useLocation();
 
   // Use sessionStorage instead of localStorage
   const [isSubscribe, setIsSubscribe] = useState(() => {
@@ -29,17 +31,20 @@ export function NavigationProvider({ children }) {
     return storedIsPreference === "true" || false; // Default to false
   });
 
-  // Navigation handler function
+  // New state for storing preferences
+  const [myPreferences, setMyPreferences] = useState(() => {
+    const storedPreferences = sessionStorage.getItem("myPreferences");
+    return storedPreferences ? JSON.parse(storedPreferences) : [];
+  });
+
   const handleNavigation = (path) => {
     navigate(path);
   };
 
-  // Action to update isSubscribe and persist to sessionStorage
   const handleSubscribe = () => {
     setIsSubscribe(true);
   };
 
-  // Action to update isRegister and persist to sessionStorage
   const handleRegister = () => {
     setIsRegister(true);
   };
@@ -57,7 +62,45 @@ export function NavigationProvider({ children }) {
   };
 
   const handlePreferenceClose = () => {
+    if (location.pathname === "/registration") {
+      navigate("/home");
+      setIsPreference(false);
+    }
     setIsPreference(false);
+  };
+
+  // Function to add a new preference
+  const handleAddPreference = (newPreference) => {
+    setMyPreferences((prevPreferences) => {
+      // Convert all preferences to lowercase for case-insensitive comparison
+      const lowerCasePreferences = prevPreferences.map((preference) =>
+        preference.toLowerCase()
+      );
+
+      if (lowerCasePreferences.includes(newPreference.toLowerCase())) {
+        alert(`${newPreference} is already added`);
+        return prevPreferences;
+      }
+
+      const updatedPreferences = [...prevPreferences, newPreference];
+      sessionStorage.setItem(
+        "myPreferences",
+        JSON.stringify(updatedPreferences)
+      );
+      return updatedPreferences;
+    });
+  };
+  const handleRemovePreference = (preferenceToRemove) => {
+    setMyPreferences((prevPreferences) => {
+      const updatedPreferences = prevPreferences.filter(
+        (preference) => preference !== preferenceToRemove
+      );
+      sessionStorage.setItem(
+        "myPreferences",
+        JSON.stringify(updatedPreferences)
+      );
+      return updatedPreferences;
+    });
   };
 
   // Save to sessionStorage whenever the state changes
@@ -77,6 +120,10 @@ export function NavigationProvider({ children }) {
     sessionStorage.setItem("isPreference", isPreference);
   }, [isPreference]);
 
+  useEffect(() => {
+    sessionStorage.setItem("myPreferences", JSON.stringify(myPreferences));
+  }, [myPreferences]);
+
   return (
     <NavigationContext.Provider
       value={{
@@ -91,6 +138,9 @@ export function NavigationProvider({ children }) {
         isPreference,
         handlePreferenceOpen,
         handlePreferenceClose,
+        myPreferences,
+        handleAddPreference,
+        handleRemovePreference,
       }}
     >
       {children}
@@ -102,4 +152,3 @@ export function NavigationProvider({ children }) {
 export function useNavigation() {
   return useContext(NavigationContext);
 }
-

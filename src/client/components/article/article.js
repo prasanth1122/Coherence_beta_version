@@ -1,4 +1,6 @@
 import { useNavigation } from "../../store/context/navigationContext";
+import ImpressinsBar from "../impressions/impressions";
+import SubsribeParagraph from "../subscribeParagraph/subscribeParagraph";
 
 export default function Article() {
   const { isSubscribe, handleNavigation } = useNavigation();
@@ -10,15 +12,18 @@ export default function Article() {
   };
   return (
     <div className="w-full h-full lg:w-3/5 p-2 flex flex-col gap-8 items-start">
-      <div className="flex flex-col items-start gap-2">
+      <div className="w-full flex flex-col items-start gap-2">
         <p className="text-2xl text-important_text ">
           Sunlight could Harm Your Brain in various ways
         </p>
         <p className="text-lg ">Nature-Health</p>
-        <div className="flex items-center gap-2">
-          <p className="text-lg opacity-50">Biology</p>
-          <p className="text-lg opacity-50">Medicine</p>
-          <p className="text-lg opacity-50">Opthamology</p>
+        <div className="w-full flex flex-col items-start xl:flex-row gap-4 xl:justify-between">
+          <div className="flex items-center gap-2">
+            <p className="text-lg opacity-50">Biology</p>
+            <p className="text-lg opacity-50">Medicine</p>
+            <p className="text-lg opacity-50">Opthamology</p>
+          </div>
+          <ImpressinsBar />
         </div>
       </div>
       {
@@ -34,6 +39,7 @@ export default function Article() {
           against overexposure is essential.
         </p>
       }
+      {isSubscribe === false && <SubsribeParagraph />}
       {isSubscribe && (
         <>
           <p className="text-lg px-4">

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import Navbar from "../components/navBar/navbar";
+
 import FormInput from "../components/formInput/formInput";
 import { useNavigation } from "../store/context/navigationContext";
+import LocationDropdown from "../components/formInput/locationSelect";
+import Preferences from "../components/preferences/preferences";
 
 // RegistrationPage component
 export default function RegistrationPage() {
-  const { handleNavigation, handleRegister, handlePreferenceOpen } =
+  const { handleRegister, handlePreferenceOpen, isPreference } =
     useNavigation();
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
@@ -20,18 +22,15 @@ export default function RegistrationPage() {
       setErrorMessage("");
       handleRegister();
       handlePreferenceOpen();
-      handleNavigation("/home");
     }
   };
   return (
-    <div className="w-full h-full flex items-start gap-4 flex-col">
+    <div className="w-full h-full flex items-start gap-4 flex-col overflow-hidden relative">
+      {isPreference && <Preferences />}
       {/* Navbar at the top of the page */}
-      <div className="sticky top-0 z-100 w-full">
-        <Navbar />
-      </div>
 
       {/* Main content area */}
-      <main className="flex flex-col items-center gap-8 w-full flex-1 lg:flex-row lg:items-center">
+      <main className="flex flex-col items-center gap-8 w-full overflow-y-auto flex-1 lg:flex-row lg:items-center ">
         {/* Left section with congratulatory message */}
         <div className="flex flex-col items-center px-8 pl-12 w-full lg:w-2/5 lg:items-start lg:pl-12">
           <p className="text-2xl text-important_text">Congratulations...</p>
@@ -49,7 +48,7 @@ export default function RegistrationPage() {
             <div className="flex items-start gap-4">
               {/* Circle indicators for steps or selection */}
               <div className="w-8 h-8 bg-white rounded-full border-2 border-black"></div>
-              <div className="w-8 h-8 bg-black rounded-full border-2 border-black"></div>
+              <div className="w-8 h-8 bg-important_text rounded-full border-2 border-black"></div>
               <div className="w-8 h-8 bg-white rounded-full border-2 border-black"></div>
             </div>
           </div>
@@ -65,18 +64,19 @@ export default function RegistrationPage() {
             />
             <FormInput
               label={"Age"}
-              placeholder={"Select Age Group"}
+              type="select"
+              placeholder={"Select Age"}
+              options={[
+                { value: "18-25", label: "18-25" },
+                { value: "26-35", label: "26-35" },
+                { value: "36-45", label: "36-45" },
+                { value: "46+", label: "46+" },
+              ]}
               required={true}
               value={age}
               onChange={(e) => setAge(e.target.value)}
             />
-            <FormInput
-              label={"Location"}
-              placeholder={"Select Your Country"}
-              required={true}
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-            />
+            <LocationDropdown value={location} onChange={setLocation} />
             {/* Register button */}
             <button
               className="px-4 py-2 bg-secondary text-white text-2xl rounded-xl mt-4 hover:shadow-cta_button_shadow"

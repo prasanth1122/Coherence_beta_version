@@ -33,23 +33,23 @@ export default function MainpageNavbar() {
         className="text-sm leading-4 lg:text-base lg:leading-5 hover:cursor-pointer "
         onClick={handleHome}
       >
-        Coherence Educational
+        Coherence
         <br />
-        Society
+        Educational Society
       </p>
 
       {/* Input is also clickable if on the homepage */}
       <input
         type="text"
         placeholder="Enter Your Topic"
-        className="p-4 w-1/4 md:w-2/5 rounded-lg h-9 shadow-input_shadow text-black"
+        className="p-4 hidden md:block w-1/4 md:w-2/5 rounded-lg h-9 shadow-input_shadow text-black"
         onClick={handleClick}
       />
 
       {/* Conditionally render Register or Subscribe button based on the path */}
       <button
         disabled={isSubscribe}
-        className="px-4 py-2 rounded-xl bg-secondary hover:shadow-cta_button_shadow"
+        className="px-4 py-2 rounded-lg bg-secondary hover:shadow-cta_button_shadow"
         onClick={() =>
           handleNavigation(
             location.pathname === "/home" ? "/subscribe" : "/registration"
@@ -60,13 +60,17 @@ export default function MainpageNavbar() {
       </button>
 
       {/* Clicking icons also redirects if on the homepage */}
-      <div className="flex items-center gap-4 mr-12">
+      <div
+        className={`flex items-center gap-2 ${
+          location.pathname === "/" ? "hidden" : ""
+        }`}
+      >
         <IoPerson
-          style={{ fill: "white", width: "42px", height: "42px" }}
+          style={{ fill: "white", width: "36px", height: "36px" }}
           onClick={() => handleNavigation("/statistics")}
         />
         <IoNotifications
-          style={{ fill: "white", width: "42px", height: "42px" }}
+          style={{ fill: "white", width: "36px", height: "36px" }}
           onClick={handleNotificationClick}
         />
       </div>

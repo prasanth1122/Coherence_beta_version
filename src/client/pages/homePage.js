@@ -4,6 +4,7 @@ import MainpageNavbar from "../components/mainpageNavbar/mainpageNavbar";
 import Preferences from "../components/preferences/preferences";
 import ProfileBar from "../components/profileBar/profileBar";
 import Sidebar from "../components/sidebar/sidebar";
+import MultipleDoi from "../components/similarArticles/multipleDoi";
 import SimilarArticlesBar from "../components/similarArticles/similarArticlesBar";
 import { useNavigation } from "../store/context/navigationContext";
 
@@ -20,20 +21,17 @@ export default function HomePage() {
       {isPreference && <Preferences />}
       {isProfileOpen && <ProfileBar />}
       {/* Navbar at the top of the page */}
-      <div
-        className={`sticky top-0 z-100 w-full ${isPreference && "opacity-55"}`}
-      >
+      <div className={`sticky top-0 z-100 w-full "}`}>
         <MainpageNavbar />
       </div>
 
       {/* Main content area: sidebar on the left, main content on the right */}
       <div
-        className={`flex-1 w-full flex items-start gap-4 overflow-y-hidden ${
-          isPreference && "opacity-55"
+        className={`flex-1 w-full flex items-start gap-4 overflow-y-hidden "
         }`}
       >
         {/* Sidebar component with profile and user info */}
-        <div className="sticky left-0 top-20 z-10 w-54 ">
+        <div className="sticky left-0 h-full z-10 w-54 ">
           <Sidebar />
         </div>
 
@@ -43,6 +41,11 @@ export default function HomePage() {
           <div className="w-full flex flex-col items-start gap-4 lg:flex-row">
             {/* Main article component */}
             <Article />
+            {isSubscribe === false && (
+              <div className="w-full flex flex-col  gap-4 lg:flex-1  h-full">
+                <MultipleDoi />
+              </div>
+            )}
 
             {/* Sidebar for similar articles */}
             {isSubscribe && <SimilarArticlesBar />}
@@ -50,12 +53,20 @@ export default function HomePage() {
 
           {/* Comments section with background and top border */}
           {isSubscribe && (
-            <div className="w-full p-4 flex flex-col items-start gap-12 bg-highlight_background border-t-2 border-black">
+            <div className="w-full p-4 flex flex-col items-start gap-12 bg-highlight_background rounded-xl">
               {/* Section title */}
-              <p className="text-2xl text-important_text underline">Comments</p>
+              <p className="text-2xl text-important_text ">Comments</p>
 
               {/* Comments section where multiple comment components are displayed */}
               <div className="w-full flex flex-col items-start gap-4">
+                <div className="w-full flex flex-col items-start gap-2 mt-2">
+                  <p className="text-lg ">Add Comment </p>
+                  <input
+                    type="text"
+                    placeholder="Add Comment"
+                    className="w-full xl:w-1/2  h-12 text-lg rounded-xl bg-white shadow-input_shadow p-4"
+                  />
+                </div>
                 {/* Repeated comment components for demo purposes */}
                 <Comments
                   name={"Sarthak Gandhi"}

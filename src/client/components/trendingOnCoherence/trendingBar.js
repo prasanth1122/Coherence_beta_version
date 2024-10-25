@@ -14,7 +14,7 @@ export default function TrendingBar({ heading, area, number }) {
 
   return (
     <div
-      className="w-full h-40 rounded-xl bg-terinary/[0.5] p-4 flex items-start justify-between md:w-2/5 hover:shadow-card_shadow hover:cursor-pointer"
+      className="min-w-trendingBar h-40 rounded-xl bg-terinary/[0.5] p-4 flex items-start justify-between  hover:shadow-card_shadow hover:cursor-pointer"
       onClick={handleClick}
     >
       <div className="flex flex-col items-start gap-2">

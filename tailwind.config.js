@@ -14,7 +14,10 @@ module.exports = {
         highlight_background: "#F4F4F9",
       },
       width: {
-        sidebar: "32rem", // Custom width (e.g., 512px),
+        sidebar: "32rem",
+      },
+      minWidth: {
+        trendingBar: "450px",
       },
       height: {
         navbar: "4rem",

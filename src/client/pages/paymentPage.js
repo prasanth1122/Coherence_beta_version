@@ -1,4 +1,3 @@
-import Navbar from "../components/navBar/navbar";
 import { useNavigation } from "../store/context/navigationContext";
 
 export default function PaymentPage() {
@@ -6,15 +5,13 @@ export default function PaymentPage() {
   const handlePayment = () => {
     if (isRegister === true) {
       handleSubscribe();
-      handleNavigation("/home");
+      handleNavigation("/promo");
     }
   };
   return (
-    <div className="w-full h-full flex items-start gap-4 flex-col">
+    <div className="w-full h-full flex items-start gap-4 flex-col ">
       {/* Navbar component at the top of the page */}
-      <div className="sticky top-0 z-100 w-full">
-        <Navbar />
-      </div>
+
       <main className="flex flex-col items-center gap-8 w-full flex-1 lg:flex-row lg:items-center">
         {/* Left section with subscription message */}
         <div className="flex flex-col items-center px-8 pl-12 w-full lg:w-2/5 lg:items-start lg:pl-12">
@@ -27,7 +24,7 @@ export default function PaymentPage() {
         </div>
 
         {/* Right section with payment button */}
-        <div className="flex flex-col justify-center items-center w-5/6 px-12 mx-4 rounded-xl bg-terinary p-4 md:w-3/5 lg:h-full lg:px-24 py-12">
+        <div className="flex flex-col justify-center items-center w-5/6 px-12 mx-4 rounded-xl lg:rounded-none bg-terinary p-4 md:w-3/5 lg:h-full lg:px-24 py-12">
           {/* Form header and informational text */}
           <div className="w-full flex flex-col gap-4 items-center">
             <p className="text-4xl text-important_text">Get</p>
@@ -55,12 +52,6 @@ export default function PaymentPage() {
             >
               Make Payment of Rs. 149/Month
             </button>
-            <p
-              className="w-full text-lg text-secondary text-center hover:underline hover:cursor-pointer"
-              onClick={() => handleNavigation("/promo")}
-            >
-              Have Promo?
-            </p>
           </div>
         </div>
       </main>
