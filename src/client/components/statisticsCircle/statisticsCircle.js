@@ -8,11 +8,11 @@ const StatisticsCircle = ({ hoursSpent, totalHours }) => {
   return (
     <div className="flex items-center justify-center w-full h-full">
       <div className="relative">
-        <svg width="150" height="150" className="transform -rotate-90">
+        <svg width="180" height="180" className="transform -rotate-90">
           {/* Background Circle */}
           <circle
-            cx="75"
-            cy="75"
+            cx="80"
+            cy="80"
             r={radius}
             stroke="#ECD9AF"
             strokeWidth="12"
@@ -20,8 +20,8 @@ const StatisticsCircle = ({ hoursSpent, totalHours }) => {
           />
           {/* Progress Circle */}
           <circle
-            cx="75"
-            cy="75"
+            cx="80"
+            cy="80"
             r={radius}
             stroke="#FF5E5B"
             strokeWidth="12"

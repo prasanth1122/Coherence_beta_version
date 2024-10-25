@@ -27,7 +27,7 @@ export default function HomePage() {
 
       {/* Main content area: sidebar on the left, main content on the right */}
       <div
-        className={`flex-1 w-full flex items-start gap-4 overflow-y-hidden "
+        className={`flex-1 w-full flex items-start gap-4 overflow-y-hidden pr-4 md:pr-0 "
         }`}
       >
         {/* Sidebar component with profile and user info */}
@@ -36,7 +36,7 @@ export default function HomePage() {
         </div>
 
         {/* Main section of the page */}
-        <main className="flex-1 h-full gap-4 flex flex-col items-start overflow-y-auto">
+        <main className="flex-1 h-full gap-4 flex flex-col items-start overflow-y-auto hide-scrollbar">
           {/* Article and Similar Articles section displayed side-by-side on larger screens */}
           <div className="w-full flex flex-col items-start gap-4 lg:flex-row">
             {/* Main article component */}
@@ -61,11 +61,16 @@ export default function HomePage() {
               <div className="w-full flex flex-col items-start gap-4">
                 <div className="w-full flex flex-col items-start gap-2 mt-2">
                   <p className="text-lg ">Add Comment </p>
-                  <input
-                    type="text"
-                    placeholder="Add Comment"
-                    className="w-full xl:w-1/2  h-12 text-lg rounded-xl bg-white shadow-input_shadow p-4"
-                  />
+                  <div className="w-full items-start gap-4  flex flex-col lg:flex-row lg:items-center">
+                    <input
+                      type="text"
+                      placeholder="Add Comment"
+                      className="w-full xl:w-1/2  h-12 text-lg rounded-xl bg-white shadow-input_shadow p-4"
+                    />
+                    <button className="px-4 py-2 rounded-md text-white bg-secondary text-lg">
+                      Post
+                    </button>
+                  </div>
                 </div>
                 {/* Repeated comment components for demo purposes */}
                 <Comments

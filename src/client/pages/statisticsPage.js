@@ -53,11 +53,11 @@ export default function StatisticsPage() {
             </p>
 
             {/* Dropdown for selecting time period */}
-            <div className="w-36 relative px-4 py-2 flex items-center gap-4 border-2 border-secondary rounded-xl bg-white">
+            <div className="w-40 relative  flex items-center gap-4 border-2 border-secondary rounded-xl bg-white">
               <select
                 value={selectedPeriod}
                 onChange={handleSelectChange}
-                className="w-full appearance-none border-none text-lg focus:outline-none py-1 leading-none"
+                className="w-full px-4 py-2 rounded-xl appearance-none border-none text-lg focus:outline-none  leading-none"
               >
                 <option value="This Month">This Month</option>
                 <option value="Last Month">Last Month</option>
@@ -72,7 +72,7 @@ export default function StatisticsPage() {
           </div>
 
           {/* Rest of the content */}
-          <div className="w-full gap-20 flex flex-col items-start flex-wrap xl:gap:36 xl:flex-row">
+          <div className="w-full gap-20 flex flex-col items-start flex-wrap xl:gap:36 xl:flex-row xl:items-center">
             <div className="flex items-center gap-8 px-2 md:px-0">
               <StatisticsCircle hoursSpent={hoursSpent} totalHours={168} />
               <div className="flex flex-col items-start">

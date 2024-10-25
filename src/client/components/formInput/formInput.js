@@ -20,6 +20,9 @@ export default function FormInput({
           required={required}
           placeholder={placeholder}
         >
+          <option value="" disabled>
+            {placeholder}
+          </option>
           {options.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}
