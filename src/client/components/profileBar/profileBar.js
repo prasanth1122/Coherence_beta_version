@@ -1,5 +1,4 @@
 import { useNavigation } from "../../store/context/navigationContext";
-import PreferenceBar from "../preferences/preferenceBar";
 
 export default function ProfileBar() {
   const { handleProfileClose, myPreferences } = useNavigation();
