@@ -47,8 +47,8 @@ export default function StatisticsPage() {
 
         <div className="flex-1 h-full flex flex-col items-start gap-16 bg-highlight_background rounded-xl p-4 overflow-y-auto">
           {/* Header with user name and time period selection */}
-          <div className="flex items-center gap-16">
-            <p className="text-2xl text-important_text">
+          <div className="flex items-center  md:gap-16">
+            <p className="text-lg md:text-2xl text-important_text">
               Vishal Gupta Analytics
             </p>
 
@@ -57,7 +57,7 @@ export default function StatisticsPage() {
               <select
                 value={selectedPeriod}
                 onChange={handleSelectChange}
-                className="w-full appearance-none bg-transparent border-none text-lg focus:outline-none py-1 leading-none"
+                className="w-full appearance-none border-none text-lg focus:outline-none py-1 leading-none"
               >
                 <option value="This Month">This Month</option>
                 <option value="Last Month">Last Month</option>

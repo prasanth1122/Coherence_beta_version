@@ -41,7 +41,7 @@ export default function RegistrationPage() {
         </div>
 
         {/* Right section with registration form */}
-        <div className="flex flex-col gap-16 items-center w-5/6 px-12 mx-4 rounded-xl bg-terinary p-4 md:w-3/5 lg:h-full lg:px-24 py-12">
+        <div className="flex flex-col gap-16 items-center w-5/6 px-12 mx-4  bg-terinary p-4 md:w-3/5 lg:h-full lg:px-24 py-12">
           {/* Form header and circles for visual representation */}
           <div className="w-full flex flex-col gap-8 items-center">
             <p className="text-4xl">Register</p>

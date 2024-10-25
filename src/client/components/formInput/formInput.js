@@ -18,10 +18,8 @@ export default function FormInput({
           value={value}
           onChange={onChange}
           required={required}
+          placeholder={placeholder}
         >
-          <option value="" disabled>
-            {placeholder}
-          </option>
           {options.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}

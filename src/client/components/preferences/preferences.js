@@ -32,7 +32,7 @@ export default function Preferences() {
 
   return (
     <div className="w-full h-full z-20 flex items-center justify-center bg-transparent/[0.5] absolute top-0 left-0">
-      <div className="p-4 w-96 min-h-[500px] bg-terinary rounded-xl flex flex-col items-center gap-8">
+      <div className="p-4 w-96 min-h-[500px] bg-terinary rounded-xl flex flex-col items-center gap-4 mx-2">
         <p className="text-2xl">Preferences</p>
         <div className="w-full flex flex-col items-start gap-2">
           <p className="text-lg">Enter Preference</p>
@@ -53,7 +53,7 @@ export default function Preferences() {
           </div>
         </div>
 
-        <div className="p-4 w-full flex-1 rounded-xl bg-white flex items-start gap-2 flex-wrap">
+        <div className="p-4 w-full min-h-56 rounded-xl bg-white flex items-start gap-2 flex-wrap">
           {myPreferences.map((preference, index) => (
             <PreferenceBar
               key={index}
@@ -62,15 +62,15 @@ export default function Preferences() {
             />
           ))}
         </div>
+        {errorMessage && (
+          <p className="text-lg w-full text-center">{errorMessage}</p>
+        )}
         <button
           className="px-4 py-2 bg-secondary rounded-xl text-white text-lg hover:shadow-cta_button_shadow"
           onClick={handlePreferenceClick}
         >
           Submit
         </button>
-        {errorMessage && (
-          <p className="text-lg w-full text-center">{errorMessage}</p>
-        )}
       </div>
     </div>
   );
